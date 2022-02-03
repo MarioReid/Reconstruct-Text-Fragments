@@ -15,6 +15,10 @@
 * [License](#license)
 
 ## About the Project 
+Write a program that reads a file of text fragments and attempts to reconstruct the original document
+out of the fragments. The fragments were created by duplicating the original document many times
+over and chopping each copy into pieces. The fragments overlap one another and your program will
+search for overlaps and align the fragments to reassemble them into their original order.
 
 ### Getting Started 
 View deployed website
@@ -25,6 +29,11 @@ View deployed website
     `git clone git@github.com:MarioReid/Reconstruct-Text-Fragments.git`
 
 2.  `run application in your local host`
+
+### Usage 
+
+As a user, I want an application that allows me to take fragments and run to form a complete sentence. 
+
 ### Contributing
 
 The following individual contributed to the success of this application. You can view their Github profiles by clicking on their name:
