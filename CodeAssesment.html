@@ -12,46 +12,74 @@
       crossorigin="anonymous"
     ></script>
     <script>
-        //each of the sentence fragment variables
-        let s1 = "all is well";
-        let s2 = 'ell that en';
-        let s3 = 'hat end';
-        let s4 = 't ends well';
-        //puts sentence fragments into 1 array
-        let sentenceFragments = [s1, s2, s3, s4];
-        //placeholder
-        let originalDocument = '';
-        console.log(sentenceFragments);
+      //each of the sentence fragment variables
+      let s1 = "all is well";
+      let s2 = "ell that en";
+      let s3 = "hat end";
+      let s4 = "t ends well";
+      //puts sentence fragments into 1 array
+      let sentenceFragments = [s1, s2, s3, s4];
+      //placeholder
+      let originalDocument = "";
+      console.log(sentenceFragments);
 
+      //each loop for the fragments(s1-s4)
+      $.each(sentenceFragments, function (index, value) {
+        if (index === 0) {
+          originalDocument = originalDocument + value;
+        }
+        //if statement to stop at index 3
+        if (index !== sentenceFragments.length - 1) {
+          //variables
+          let secondSentence = sentenceFragments[index + 1];
+          let overlappingCharacters = findOverlap(
+            originalDocument,
+            secondSentence
+          );
+          let secondSentenceWithoutOverlappingCharacters =
+            secondSentence.replace(overlappingCharacters, "");
 
+          console.log(
+            Object.entries({
+              "document-so-far": originalDocument,
+              "comparative-string": secondSentence,
+              "overlapping-characters": overlappingCharacters,
+              "second-string-overlapping-removed":
+                secondSentenceWithoutOverlappingCharacters,
+              "combined-strings-after":
+                originalDocument + secondSentenceWithoutOverlappingCharacters,
+            }).map((k) => ({ [k[0]]: k[1] }))
+          );
 
+          originalDocument =
+            originalDocument + secondSentenceWithoutOverlappingCharacters;
+        }
 
+        // Steps to complete
+        //   1. Get sentenceFragments length
+        //   2. If first index 0 we need the last word
+        //   3. If last index based on sentenceFragments length we need to only get the first word
+      });
 
-    // Steps to complete
-    //   1. Get sentenceFragments length
-    //   2. If first index 0 we need the last word
-    //   3. If last index based on sentenceFragments length we need to only get the first word
-});
+      //find overlapping characters between 2 strings
+      function findOverlap(a, b) {
+        if (b.length === 0) {
+          return "";
+        }
 
-    //find overlapping characters between 2 strings
-    function findOverlap(a, b) {
-      if (b.length === 0) {
-        return "";
+        if (a.endsWith(b)) {
+          return b;
+        }
+
+        if (a.indexOf(b) >= 0) {
+          return b;
+        }
+
+        return findOverlap(a, b.substring(0, b.length - 1));
       }
 
-      if (a.endsWith(b)) {
-        return b;
-      }
-
-      if (a.indexOf(b) >= 0) {
-        return b;
-      }
-
-      return findOverlap(a, b.substring(0, b.length - 1));
-    }
-    
-//display Page
-    $(document).ready(function () {
+      //display Page
+      $(document).ready(function () {
         $("#formatted-text").text(originalDocument);
       });
     </script>
