@@ -13,10 +13,15 @@
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [License](#license)
-* [Contact](#contact)
 
 ## About the Project 
 
+
+### Contributing
+
+The following individual contributed to the success of this application. You can view their Github profiles by clicking on their name:
+
+* [Mario Reid](https://github.com/MarioReid)  
 
 ### License  
 
