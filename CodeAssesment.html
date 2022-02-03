@@ -12,7 +12,30 @@
       crossorigin="anonymous"
     ></script>
 
-//Display Page
+    // Steps to complete
+    //   1. Get sentenceFragments length
+    //   2. If first index 0 we need the last word
+    //   3. If last index based on sentenceFragments length we need to only get the first word
+});
+
+    //find overlapping characters between 2 strings
+    function findOverlap(a, b) {
+      if (b.length === 0) {
+        return "";
+      }
+
+      if (a.endsWith(b)) {
+        return b;
+      }
+
+      if (a.indexOf(b) >= 0) {
+        return b;
+      }
+
+      return findOverlap(a, b.substring(0, b.length - 1));
+    }
+    
+//display Page
     $(document).ready(function () {
         $("#formatted-text").text(originalDocument);
       });
