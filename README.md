@@ -16,7 +16,15 @@
 
 ## About the Project 
 
+### Getting Started 
+View deployed website
 
+### Installation 
+
+1.  `Clone the repo`
+    `git clone git@github.com:MarioReid/Reconstruct-Text-Fragments.git`
+
+2.  `run application in your local host`
 ### Contributing
 
 The following individual contributed to the success of this application. You can view their Github profiles by clicking on their name:
